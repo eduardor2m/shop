@@ -1,91 +1,93 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+'use client';
 
-const inter = Inter({ subsets: ['latin'] })
+import Image from "next/image"
+
+import styles from "@/styles/pages/home.module.scss"
+import NavBar from "@/components/NavBar"
+import { useState } from "react"
+import Head from "./head";
+
 
 export default function Home() {
+  const [amount, setAmount] = useState(1)
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      
+      <Head />
+      <main className={styles.main}>
+        <NavBar />
+        <div className={styles.content}>
+        <div className={styles.product}>
+            <div className={styles.product_image}>
+              <div className={styles.product_image_wrapper}>
+              <Image src="/coldplay.jpeg" alt="Product" width={450} height={300} className={styles.img} style={{
+              borderRadius: '10px'
+                }} />
+              </div>
+              <div className={styles.product_image_gallery}>
+                <div className={styles.product_image_gallery_wrapper}>
+                  <div className={styles.product_image_gallery_item}>
+                  <Image src="/coldplay.jpeg" alt="Product" width={100} height={100} className={styles.img} style={{
+                    borderRadius: '10px'
+                    }} />
+                  </div>
+                  <div className={styles.product_image_gallery_item}>
+                  <Image src="/coldplay.jpeg" alt="Product" width={100} height={100} className={styles.img} style={{
+                    borderRadius: '10px'
+                    }} />
+                  </div>
+                  <div className={styles.product_image_gallery_item}>
+                  <Image src="/coldplay.jpeg" alt="Product" width={100} height={100} className={styles.img} style={{
+                    borderRadius: '10px'
+                    }} />
+                  </div>
+                  <div className={styles.product_image_gallery_item}>
+                  <Image src="/coldplay.jpeg" alt="Product" width={100} height={100} className={styles.img} style={{
+                    borderRadius: '10px'
+                    }} />
+                    </div>
+
+                </div>
+                </div>
+          </div>
+          
+            <div className={styles.product_info}>
+              <h3 className={styles.product_brand}>ColdPlay</h3>
+              <h1 className={styles.product_name}>
+                Viva La Vida
+            </h1>
+              <p className={styles.product_description}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies lacinia, nisl nisl aliquet nisl, nec aliquet nisl nisl sit amet nisl. Sed euismod, nisl nec ultricies lacinia, nisl nisl aliquet nisl, nec aliquet nisl nisl sit amet nisl.
+              </p>
+              <div className={styles.product_price}>
+                <div className={styles.product_price_wrapper}>
+                <span className={styles.product_price_value}>R$ 1.199,90</span>
+                <div className={styles.product_price_percentage_descount}>
+                  <span className={styles.product_price_percentage_descount_value}>-10%</span>
+                  </div>
+                  </div>
+                <span className={styles.product_price_value_old}>1.499,90</span>
+
+              </div>
+            <div className={styles.product_buy}>
+              <div className={styles.product_buy_quantity}>
+                  <button type="button" onClick={
+                    () => amount === 1 ? setAmount(amount) : setAmount(amount - 1)
+                }>-</button>
+                  <section className={styles.quantity}>{ amount}</section>
+                  <button type="button" onClick={
+                    () => setAmount(amount + 1)
+                }>+</button>
+              </div>
+              <button type="button">Comprar</button>
+            </div>
+
+            </div>
+            </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </main>
+    </>
   )
 }

@@ -1,0 +1,87 @@
+.container {
+  width: 100%;
+  height: 180px;
+  border-bottom: 1px solid #d0d4db;
+  padding: 20px;
+  max-width: 1440px;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+
+      .logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 50px;
+
+        h1 {
+          font-size: 24px;
+          font-weight: 600;
+          color: #020304;
+        }
+      }
+
+      .links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        width: 50%;
+        height: 100%;
+
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          color: rgb(141, 139, 139);
+          margin-right: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      .user_cart {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-right: 20px;
+        cursor: pointer;
+
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          color: rgb(141, 139, 139);
+          margin-right: 10px;
+        }
+      }
+
+      .user_profile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+}
